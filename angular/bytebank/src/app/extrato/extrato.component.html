@@ -1,0 +1,18 @@
+<table class="tabela">
+  <thead class="tabela__cabecalho">
+    <th class="tabela__cabecalho__conteudo">Date</th>
+    <th class="tabela__cabecalho__conteudo">Value</th>
+    <th class="tabela__cabecalho__conteudo">Destiny</th>
+  </thead>
+  <tbody>
+    <tr class="tabela__linha" *ngFor="let transaction of transactions">
+      <td class="tabela__conteudo">
+        {{ transaction.date | date: "short" }}
+      </td>
+      <td class="tabela__conteudo">
+        {{ transaction.value | currency }}
+      </td>
+      <td class="tabela__conteudo">{{ transaction.destiny }}</td>
+    </tr>
+  </tbody>
+</table>
