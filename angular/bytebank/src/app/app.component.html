@@ -1,1 +1,4 @@
-<app-new-transfer></app-new-transfer>
+<app-new-transfer (onTransfer)="transfer($event)"></app-new-transfer>
+
+<p>Value: {{ transaction?.value }}</p>
+<p>Destiny: {{ transaction?.destiny }}</p>

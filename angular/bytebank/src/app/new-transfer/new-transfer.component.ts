@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-new-transfer',
@@ -6,11 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-transfer.component.scss'],
 })
 export class NewTransferComponent {
+  @Output() onTransfer = new EventEmitter<any>();
+
   value: number = 1;
   destiny: number = 2;
   transfer() {
     console.log('starting tranfering');
-    console.log('value:' + this.value);
-    console.log('value:' + this.destiny);
+    const emmitedValue = { value: this.value, destiny: this.destiny };
+    this.onTransfer.emit(emmitedValue);
+    this.clean();
+  }
+
+  clean() {
+    this.destiny = 0;
+    this.value = 0;
   }
 }
