@@ -4,7 +4,7 @@
     <th class="tabela__cabecalho__conteudo">Value</th>
     <th class="tabela__cabecalho__conteudo">Destiny</th>
   </thead>
-  <tbody>
+  <tbody *ngIf="transactions.length > 0; else emptyList">
     <tr class="tabela__linha" *ngFor="let transaction of transactions">
       <td class="tabela__conteudo">
         {{ transaction.date | date: "short" }}
@@ -16,3 +16,7 @@
     </tr>
   </tbody>
 </table>
+
+<ng-template #emptyList>
+  <p>None Transaction</p>
+</ng-template>
