@@ -22,12 +22,12 @@ export class TransactionService {
     return this.httpClient.get<Transaction[]>(this.url);
   }
 
-  add(transaction: any) {
+  add(transaction: Transaction): Observable <Transaction> {
     this.enrich(transaction);
-    this.transactionList.push(transaction);
+    return this.httpClient.post<Transaction>(this.url, transaction);
   }
 
   private enrich(transaction: any) {
-    transaction.date = new Date();
+    transaction.data = new Date();
   }
 }

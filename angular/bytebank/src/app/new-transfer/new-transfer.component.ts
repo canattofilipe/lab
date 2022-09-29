@@ -1,4 +1,7 @@
+import { TransactionService } from './../services/transaction.service';
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Transaction } from '../model/transaction.model';
 
 @Component({
   selector: 'app-new-transfer',
@@ -10,11 +13,25 @@ export class NewTransferComponent {
 
   value: number = 1;
   destiny: number = 2;
+
+  constructor(private service: TransactionService) {}
+
   transfer() {
     console.log('starting tranfering');
-    const emmitedValue = { value: this.value, destiny: this.destiny };
+    const emmitedValue: Transaction = {
+      valor: this.value,
+      destino: this.destiny,
+    };
     this.onTransfer.emit(emmitedValue);
-    this.clean();
+    this.service.add(emmitedValue).subscribe(
+      (result) => {
+        console.log(result);
+        this.clean();
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   clean() {

@@ -1,4 +1,3 @@
-import { TransactionService } from './services/transaction.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,11 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bytebank';
-
-
-  constructor(private service: TransactionService) {}
-
-  transfer($event) {
-    this.service.add($event);
-  }
 }
