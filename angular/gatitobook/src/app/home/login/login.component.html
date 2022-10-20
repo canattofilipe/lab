@@ -7,7 +7,13 @@
       placeholder="Nome do usuário"
       [(ngModel)]="usuario"
       name="usuario"
+      #campoUsuario="ngModel"
+      required
     />
+    <app-mensagem
+      *ngIf="campoUsuario.invalid"
+      mesagem="Usuario obrigatório"
+    ></app-mensagem>
   </div>
 
   <div class="mt-3">
@@ -17,7 +23,13 @@
       placeholder="Senha"
       [(ngModel)]="senha"
       name="senha"
+      #campoSenha="ngModel"
+      required
     />
+    <app-mensagem
+      *ngIf="campoSenha.invalid"
+      mesagem="Senha obrigatória"
+    ></app-mensagem>
   </div>
 
   <div class="d-grid gap-2">
