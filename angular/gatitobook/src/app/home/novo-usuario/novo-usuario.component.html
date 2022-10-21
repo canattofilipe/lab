@@ -8,6 +8,14 @@
       class="form-control"
       formControlName="email"
     />
+    <app-mensagem
+      *ngIf="novoUsuarioForm.get('email')?.errors?.['required'] && novoUsuarioForm.get('email')?.touched"
+      mesagem="Email obrigatório"
+    ></app-mensagem>
+    <app-mensagem
+      *ngIf="novoUsuarioForm.get('email')?.errors?.['email'] && novoUsuarioForm.get('email')?.touched"
+      mesagem="Email no formato incorreto"
+    ></app-mensagem>
   </div>
   <div class="mb-3">
     <input
@@ -16,6 +24,13 @@
       class="form-control"
       formControlName="fullName"
     />
+    <app-mensagem
+      *ngIf="
+        novoUsuarioForm.get('fullName')?.errors &&
+        novoUsuarioForm.get('fullName')?.touched
+      "
+      mesagem="Nome incorreto"
+    ></app-mensagem>
   </div>
   <div class="mb-3">
     <input
