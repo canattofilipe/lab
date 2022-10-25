@@ -5,9 +5,7 @@ export function usuarioSenhaIguaisValidator(formGroup: FormGroup) {
   const password = formGroup.get('password')?.value ?? '';
 
   if (username.trim() + password.trim()) {
-    let ret = username !== password ? null : { senhaIgualUsuario: true };
-    console.log(ret);
-    return ret;
+    return username !== password ? null : { senhaIgualUsuario: true };
   } else {
     return null;
   }
