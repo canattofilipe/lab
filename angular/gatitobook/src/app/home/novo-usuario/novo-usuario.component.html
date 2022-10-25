@@ -62,6 +62,11 @@
     />
   </div>
 
+  <app-mensagem
+    *ngIf="novoUsuarioForm.errors?.['senhaIgualUsuario']"
+    mesagem="Nome do usuário e senha não podem ser iguais"
+  ></app-mensagem>
+
   <div class="d-grid gap-2">
     <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
   </div>
