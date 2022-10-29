@@ -16,4 +16,12 @@ describe(UniqueIdService.name, () => {
 
     expect(ids.size).toBe(50);
   });
+
+  it(`#${UniqueIdService.prototype.getNumberOfGeneratedUniqueIds.name} should generate the number of generated IDs when called`, () => {
+    const service = new UniqueIdService();
+    service.generateUniqueIdWithPrefix('app');
+    service.generateUniqueIdWithPrefix('app');
+
+    expect(service.getNumberOfGeneratedUniqueIds()).toBe(2);
+  });
 });
