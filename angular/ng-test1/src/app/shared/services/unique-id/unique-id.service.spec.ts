@@ -28,9 +28,11 @@ describe(UniqueIdService.name, () => {
   });
 
   it(`#${UniqueIdService.prototype.generateUniqueIdWithPrefix.name} should throw when called with empty`, () => {
-    const emtptyValues = [null, undefined, '', '0'];
+    const emtptyValues = [null, undefined, '', '0', '1'];
     emtptyValues.forEach((v) =>
-      expect(() => service.generateUniqueIdWithPrefix(v)).toThrow()
+      expect(() => service.generateUniqueIdWithPrefix(v))
+        .withContext(`Empty value: ${v}`)
+        .toThrow()
     );
   });
 });
