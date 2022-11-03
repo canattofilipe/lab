@@ -5,6 +5,7 @@ import { LikeWidGetComponent } from './like-widget.component';
 
 describe(LikeWidGetComponent.name, () => {
   let fixture: ComponentFixture<LikeWidGetComponent> = null;
+  let component: LikeWidGetComponent = null;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -14,25 +15,32 @@ describe(LikeWidGetComponent.name, () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(LikeWidGetComponent);
+    component = fixture.componentInstance;
   });
 
   it('Should create component', () => {
-    const instance = fixture.componentInstance;
-    expect(instance).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
   it('Should auto generate ID when id input property is missing', () => {
-    const component = fixture.componentInstance;
     // force lifecicle start
     fixture.detectChanges();
     expect(component.id).toBeTruthy();
   });
 
   it('Should NOT generate ID when id input property is present', () => {
-    const component = fixture.componentInstance;
     const someId = 'someId';
     component.id = someId;
     fixture.detectChanges();
     expect(component.id).toBe(someId);
+  });
+
+  it(`#${LikeWidGetComponent.prototype.like.name} should trigger emission when called`, (done) => {
+    fixture.detectChanges();
+    component.liked.subscribe(() => {
+      expect(true).toBeTrue();
+      done();
+    });
+    component.like();
   });
 });
