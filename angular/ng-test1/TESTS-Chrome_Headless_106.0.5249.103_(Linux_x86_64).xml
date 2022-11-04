@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<testsuite name="Chrome Headless 106.0.5249.103 (Linux x86_64)" package="" timestamp="2022-11-04T16:33:20" id="0" hostname="lnb028526cps" tests="8" errors="0" failures="0" time="0.108">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/106.0.5249.103 Safari/537.36"/>
+  </properties>
+  <testcase name="UniqueIdService #generateUniqueIdWithPrefix should generate id when called with prefix" time="0.003" classname="Chrome_Headless_106_0_5249_103_(Linux_x86_64).UniqueIdService"/>
+  <testcase name="UniqueIdService #generateUniqueIdWithPrefix should throw when called with empty" time="0.002" classname="Chrome_Headless_106_0_5249_103_(Linux_x86_64).UniqueIdService"/>
+  <testcase name="UniqueIdService #getNumberOfGeneratedUniqueIds should generate the number of generated IDs when called" time="0.001" classname="Chrome_Headless_106_0_5249_103_(Linux_x86_64).UniqueIdService"/>
+  <testcase name="UniqueIdService #generateUniqueIdWithPrefix should NOT generate duplicate IDs when called multiple times" time="0.001" classname="Chrome_Headless_106_0_5249_103_(Linux_x86_64).UniqueIdService"/>
+  <testcase name="LikeWidGetComponent Should NOT auto-generate ID during ngOnInit when (@Input) is assigned" time="0.068" classname="Chrome_Headless_106_0_5249_103_(Linux_x86_64).LikeWidGetComponent"/>
+  <testcase name="LikeWidGetComponent Should create component" time="0.012" classname="Chrome_Headless_106_0_5249_103_(Linux_x86_64).LikeWidGetComponent"/>
+  <testcase name="LikeWidGetComponent #like should trigger (@Output liked) when called" time="0.01" classname="Chrome_Headless_106_0_5249_103_(Linux_x86_64).LikeWidGetComponent"/>
+  <testcase name="LikeWidGetComponent Should auto-generate ID during ngOnInit when (@Input) is NOT assigned" time="0.011" classname="Chrome_Headless_106_0_5249_103_(Linux_x86_64).LikeWidGetComponent"/>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
