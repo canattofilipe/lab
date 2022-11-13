@@ -37,7 +37,7 @@ describe(PhotoFrameComponent.name, () => {
   }));
 
   it(`#${PhotoFrameComponent.prototype.like.name}
-  should trigger (@Output liked) two time when called outside debounce time`, fakeAsync(() => {
+  should trigger (@Output liked) two times when called outside debounce time`, fakeAsync(() => {
     fixture.detectChanges();
     let times = 0;
     component.liked.subscribe(() => times++);
@@ -47,4 +47,25 @@ describe(PhotoFrameComponent.name, () => {
     tick(500);
     expect(times).toBe(2);
   }));
+
+  it(`#${PhotoFrameComponent.prototype.like.name}
+  should trigger (@Output liked) two times when called outside debounce time`, fakeAsync(() => {
+    fixture.detectChanges();
+    let times = 0;
+    component.liked.subscribe(() => times++);
+    component.like();
+    tick(500);
+    component.like();
+    tick(500);
+    expect(times).toBe(2);
+  }));
+
+  it(`Should display number of likes when (@Input like) is incremented`, () => {
+    fixture.detectChanges();
+    component.likes++;
+    fixture.detectChanges();
+    const element: HTMLElement =
+      fixture.nativeElement.querySelector('.like-counter');
+    expect(element.textContent.trim()).toBe('1');
+  });
 });
