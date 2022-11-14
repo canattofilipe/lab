@@ -12,6 +12,8 @@ export class LinearComponent {
   data: any[] = [];
   view: [number, number] = [1000, 500];
 
+  selected: string = '';
+
   // options
   legend: boolean = true;
   showLabels: boolean = true;
@@ -48,6 +50,7 @@ export class LinearComponent {
 
   onSelect(data: any): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+    this.selected = `${data.series} - ${data.name} - ${data.value}`;
   }
 
   onActivate(data: any): void {
