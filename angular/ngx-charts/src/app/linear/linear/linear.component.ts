@@ -50,7 +50,14 @@ export class LinearComponent {
 
   onSelect(data: any): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
-    this.selected = `${data.series} - ${data.name} - ${data.value}`;
+
+    if (data.name) {
+      const date = new Date(data.name);
+      const fmtDate = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+      this.selected = `The sensor ${data.series} registered the value ${data.value} on ${fmtDate}`;
+    } else {
+      this.selected = '';
+    }
   }
 
   onActivate(data: any): void {
