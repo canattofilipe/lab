@@ -10,9 +10,7 @@
       [xAxisLabel]="xAxisLabel"
       [yAxisLabel]="yAxisLabel"
       [timeline]="timeline"
-      [results]="multi"
-      [maxXAxisTickLength]="maxXAxisTickLength"
-      [maxYAxisTickLength]="maxYAxisTickLength"
+      [results]="linearChartData"
       (select)="onSelect($event)"
       (activate)="onActivate($event)"
       (deactivate)="onDeactivate($event)"
@@ -21,5 +19,5 @@
   </div>
 </div>
 <div class="row">
-  <app-click-info [message]="selected"></app-click-info>
+  <span>{{ selected }}</span>
 </div>

@@ -1,3 +1,4 @@
+import { AdaptService } from './../adapt.service';
 import { Component, NgModule } from '@angular/core';
 import { data } from '../../mock/data';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
@@ -8,7 +9,7 @@ import { Color, ScaleType } from '@swimlane/ngx-charts';
   styleUrls: ['./linear.component.css'],
 })
 export class LinearComponent {
-  multi: any[] = [];
+  linearChartData: any[] = [];
   data: any[] = [];
   view: [number, number] = [1000, 500];
 
@@ -25,8 +26,6 @@ export class LinearComponent {
   xAxisLabel: string = 'Time';
   yAxisLabel: string = 'Temperature';
   timeline: boolean = true;
-  maxXAxisTickLength: number = 100;
-  maxYAxisTickLength: number = 100;
 
   colorScheme: Color = {
     domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5'],
@@ -35,17 +34,10 @@ export class LinearComponent {
     name: 'Customer Usage',
   };
 
-  constructor() {
-    let multi: any[] = [];
-    data.forEach((el) => {
-      let newSerie: any[] = [];
-      el.series.forEach((s) => {
-        newSerie.push({ name: new Date(s.name), value: s.value });
-      });
-      multi.push({ name: el.name, series: newSerie });
-    });
+  constructor(adapter: AdaptService) {
+    let linearChartData: any[] = adapter.adapt(data);
 
-    Object.assign(this, { multi });
+    Object.assign(this, { linearChartData });
   }
 
   onSelect(data: any): void {

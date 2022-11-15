@@ -1,4 +1,3 @@
-import { LinearComponent } from './linear/linear/linear.component';
 import { LinearModule } from './linear/linear.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
