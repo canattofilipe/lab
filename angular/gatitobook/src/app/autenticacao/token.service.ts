@@ -19,6 +19,8 @@ export class TokenService {
   }
 
   possuiToken() {
-    return !this.retornaToken;
+    const x = this.retornaToken() != '';
+
+    return x;
   }
 }

@@ -16,12 +16,18 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log('initi');
+    console.log(this.authService.isLogged());
+    if (this.authService.isLogged()) {
+      this.router.navigate(['animais']);
+    }
+  }
 
   login() {
     this.authService.autenticar(this.usuario, this.senha).subscribe(
       () => {
-        this.router.navigate(['animais'])
+        this.router.navigate(['animais']);
       },
       (error) => {
         alert('usuario ou senha invalida');

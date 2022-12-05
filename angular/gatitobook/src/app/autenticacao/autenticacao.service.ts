@@ -31,4 +31,8 @@ export class AutenticacaoService {
         })
       );
   }
+
+  isLogged(): boolean {
+    return this.usuarioService.estaLogado();
+  }
 }
