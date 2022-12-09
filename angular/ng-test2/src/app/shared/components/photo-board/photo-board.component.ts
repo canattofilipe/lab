@@ -8,7 +8,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 })
 export class PhotoBoardComponent implements OnChanges {
   @Input() public photos: Photo[];
-  public rows: any[][];
+  public rows: any[][] = [];
 
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes.photos) {
@@ -16,7 +16,7 @@ export class PhotoBoardComponent implements OnChanges {
     }
   }
 
-  public groupColumns(photos: Photo[]): any[][] {
+  private groupColumns(photos: Photo[]): any[][] {
     const newRows = [];
     const step = 4;
     for (let i = 0; i < photos.length; i += step) {
